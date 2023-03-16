@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+         <!-- ハンバーガーメニュー部分 -->
+      <div class="nav">
+    
+        <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+        <input id="drawer_input" class="drawer_hidden" type="checkbox">
+    
+        <!-- ハンバーガーアイコン -->
+        <label for="drawer_input" class="drawer_open"><span></span></label>
+    
+        <!-- メニュー -->
+        <nav class="nav_content">
+          <ul class="nav_list">
+            <li class="nav_item_task-manager">ToDo管理</li>
+            <li class="nav_item_task-history">ToDo一覧</li>
+          </ul>
+        </nav>
+   
+      </div>
+      <!-- ハンバーガーメニュー成分終わり -->
+    </div>
+    <div class="button">
+        <button id="modalOpen">ToDo追加</button>
+    </div>
+    <div class="container">
+        <div class="undone">
+            <p class="title">未完了</p>
+            <div class="task-container">
+                    <ul class="undone-tasks">
+                    </ul>
+            </div>
+        </div>
+        <div class="doing">
+            <p class="title">進行中</p>
+            <div class="task-container">
+                <ul class="doing-tasks">
+                </ul>
+            </div>
+        </div>
+        <div class="done">
+            <p class="title">完了</p>
+            <div class="task-container">
+                <ul class="done-tasks">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 作業実績 -->
+    <div class="task-history">
+        <div class="task-calender-container">
+            <div class="task-calendar"><p>カレンダー</p>
+                <div class="calender-month">
+                    <input type="button" class="previous-button" value="←">
+                    <!-- 初期表示で現在時刻の年/月を表示する、下のカレンダーも表示 -->
+                    <div class="calender-target-year-month"></div>
+                    <input type="button" class="next-button" value="→">
+                </div>
+                <table class="task-calender-table">
+                    <tr>
+                        <th>日</th>
+                        <th>月</th>
+                        <th>火</th>
+                        <th>水</th>
+                        <th>木</th>
+                        <th>金</th>
+                        <th>土</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="task-table">
+                <table class="task-table-container">
+                    <tr class="task-table-header">
+                        <th class="task-table-header-name">名前</th>
+                        <th class="task-table-header-stats">状況</th>
+                        <th class="task-table-header-time">時間(分)</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="taskmenu">
+        <ul>
+            <li class="taskmenu-undone">未完了へ</li>
+            <li class="taskmenu-doing">進行中へ</li>
+            <li class="taskmenu-doing">完了へ</li>
+            <li class="taskmenu-delete">削除</li>
+            <li class="taskmenu-memo">メモ</li>
+            <button class="closemenu">×</button>
+        </ul>
+    </div>
+    <!-- モーダル開始 -->
+    <div id="easyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p>ToDo追加</p>
+                <span class="modalClose">×</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="new-task-name">
+                    <button class="add-task-button">追加</button>
+                </input>
+            </div>
+        </div>
+    </div>
+    <!-- モーダル終了 -->
+    <script src="index.js"></script>
+</body>
+</html>

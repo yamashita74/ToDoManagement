@@ -1,0 +1,309 @@
+.container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+}
+
+div.done {
+    width: 30%;
+    border: 1px dotted;
+}
+
+div.doing {
+    width: 30%;
+    border: 1px dotted;
+
+}
+
+div.undone {
+    width: 30%;
+    border: 1px dotted;
+}
+
+div.container p.title{
+    text-align: center;
+}
+
+div.container .task {
+    margin: 10px;
+    list-style: none;
+    border: 1px solid;
+    width: 70%;
+    justify-content: space-around;
+    padding-left: 10px;
+}
+
+div.container .task:hover {
+    background-color: greenyellow;
+    box-shadow:  10px 10px 15px -10px;
+}
+
+div.container ul{
+    padding-left: 0
+}
+
+.task-container {
+    height: 100%;
+    margin-bottom: 100px;
+}
+
+.taskmenu {
+    display: none;
+    user-select: none;
+    position: absolute;
+}
+
+.taskmenu ul {
+    padding-left: 0;
+    margin-top: 0;
+    list-style: none;
+}
+
+.taskmenu li {
+    border: 1px solid;
+    width: 200px;
+    text-align: center;
+    background-color:azure;
+}
+
+.taskmenu li:hover{
+    background-color: greenyellow;
+    box-shadow:  10px 10px 15px -10px;
+}
+
+.taskmenu .closemenu {
+    color: red;
+    display:inline-block;
+    float: right;
+}
+
+.taskmenu .closemenu:hover{
+    border: 1px dotted;
+    background-color: white;
+    box-shadow:  10px 10px 15px -10px;
+}
+
+.addtask {
+
+}
+
+div.button {
+    margin: 0 0 0 auto;
+    width:  100px;
+}
+
+/*モーダル開始*/
+.button:hover {
+    background: lightcoral;
+    cursor: pointer;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-content {
+    background-color: #f4f4f4;
+    margin: 20% auto;
+    width: 50%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+    animation-name: modalopen;
+    animation-duration: 1s;
+  }
+  
+  @keyframes modalopen {
+    from {opacity: 0}
+    to {opacity: 1}
+  }
+  
+  .modal-header h1 {
+    margin: 1rem 0;
+  }
+  
+  .modal-header {
+    background: lightblue;
+    padding: 3px 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .modalClose {
+    font-size: 2rem;
+  }
+  
+  .modalClose:hover {
+    cursor: pointer;
+  }
+  
+  .modal-body {
+    padding: 10px 20px;
+    color: black;
+  }
+  .modal-body button {
+    margin: 0 0 0 auto;
+  }
+  /*モーダル終了*/
+
+  /* ここから下がハンバーガーメニューに関するCSS */
+  
+/* チェックボックスを非表示にする */
+.drawer_hidden {
+  display: none;
+}
+
+/* ハンバーガーアイコンの設置スペース */
+.drawer_open {
+  display: flex;
+  height: 60px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;/* 重なり順を一番上にする */
+  cursor: pointer;
+}
+
+/* ハンバーガーメニューのアイコン */
+.drawer_open span,
+.drawer_open span:before,
+.drawer_open span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background: #333;
+  transition: 0.5s;
+  position: absolute;
+}
+
+/* 三本線の一番上の棒の位置調整 */
+.drawer_open span:before {
+  bottom: 8px;
+}
+
+/* 三本線の一番下の棒の位置調整 */
+.drawer_open span:after {
+  top: 8px;
+}
+
+/* アイコンがクリックされたら真ん中の線を透明にする */
+#drawer_input:checked ~ .drawer_open span {
+  background: rgba(255, 255, 255, 0);
+}
+
+/* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+#drawer_input:checked ~ .drawer_open span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#drawer_input:checked ~ .drawer_open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+  
+/* メニューのデザイン*/
+.nav_content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%; /* メニューを画面の外に飛ばす */
+  z-index: 99;
+  background: #fff;
+  transition: .5s;
+}
+
+/* メニュー黒ポチを消す */
+.nav_list {
+  list-style: none;
+  padding-top: 50px;
+  /* display: flex;
+  height: 60px;
+  width: 60px; */
+}
+
+/* アイコンがクリックされたらメニューを表示 */
+#drawer_input:checked ~ .nav_content {
+  left: 0;/* メニューを画面に入れる */
+}
+
+/*ハンバーガーメニュー終了*/
+
+/* 作業実績のスタイル開始 */
+.task-history {
+  display: none;
+}
+
+.task-calendar {
+  border: 1px solid;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.task-graph {
+  border: 1px solid;
+  margin-top: 10px;
+  padding: 10px; 
+}
+
+.task-table {
+  border: 1px solid;
+  margin-top: 10px;
+  padding: 10px; 
+  margin-left: 5px; 
+  width: 100%;
+}
+
+.task-calender-container {
+  display: flex;
+}
+
+.calender-month {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calender-target-year-month {
+
+}
+
+.task-table-container {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.task-table-header-name {
+  border: 1px solid;
+  width: 50%;
+}
+.task-table-header-stats {
+  border: 1px solid;
+  width: 25%;
+}
+.task-table-header-time {
+  border: 1px solid;
+  width: 25%;
+}
+
+.task-table-task-data {
+  text-align: center;
+}
+
+.task-table-task-column {
+  border: 1px solid;
+}
+
+.new-task-name {
+  width: 100%;
+}
